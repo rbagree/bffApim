@@ -2,7 +2,7 @@
 const baseUri = "https://api-portal-beta.literadev.com";
 
 // The Microsoft Entra ID application registration client ID
-const clientId = "<722b9421-31fc-4890-afc3-e4071864de2e";
+const clientId = "722b9421-31fc-4890-afc3-e4071864de2e";
 
 // The Microsoft Entra ID tenant ID
 const tenantId = "rbarchtenant.onmicrosoft.com";
