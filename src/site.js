@@ -1,5 +1,5 @@
 // The base API Management URI
-const baseUri = "https://api-portal-beta.literadev.com";
+const baseUri = "https://api-beta.literadev.com";
 
 // The Microsoft Entra ID application registration client ID
 const clientId = "722b9421-31fc-4890-afc3-e4071864de2e";
