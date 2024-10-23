@@ -15,7 +15,7 @@ const scope = "https://graph.microsoft.com/.default"
 // Redirects the user to the login endpoint with the appropriate parameters to begin the authentication flow
 const login = () => {
     window.location.href =
-        `https://rbarchtenant.b2clogin.com/rbarchtenant.onmicrosoft.com/b2c_1a_losignin/oauth2/v2.0/authorize?response_type=code&response_mode=query&redirect_uri=https://api-portal-beta.literadev.com/auth/callback&client_id=722b9421-31fc-4890-afc3-e4071864de2e&scope=https://graph.microsoft.com/.default`
+        `https://rbarchtenant.b2clogin.com/rbarchtenant.onmicrosoft.com/b2c_1a_losignin/oauth2/v2.0/authorize?response_type=code&response_mode=query&redirect_uri=https://api-beta.literadev.com/auth/callback&client_id=722b9421-31fc-4890-afc3-e4071864de2e&scope=https://graph.microsoft.com/.default`
         //'https://rbarchtenant.b2clogin.com/rbarchtenant.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_LOSIGNIN&client_id=${clientId}&nonce=defaultNonce&redirect_uri=${baseUri}/auth/callback&scope=${scope}&response_type=code&prompt=login'
 
 // Logs the user out of the application by redirecting to the logout endpoint of Microsoft Entra ID which will in turn call the logout endpoint of the application to remove the cookie
