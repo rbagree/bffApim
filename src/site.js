@@ -10,7 +10,7 @@ const tenantId = "rbarchtenant.onmicrosoft.com";
 // The scope for the access token request to call the Microsoft Graph API
 // If a refresh token is also required for the application, add "offline_access" to the scope
 // e.g. const scope = "https://graph.microsoft.com/.default offline_access"
-const scope = "https://graph.microsoft.com/.default"
+const scope = "https://rbarchtenant.onmicrosoft.com/IEFTestApp/Read"
 
 // Redirects the user to the login endpoint with the appropriate parameters to begin the authentication flow
 const login = () => {
