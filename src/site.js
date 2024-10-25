@@ -26,6 +26,7 @@ const logout = () => {
 };
 
 // Calls the graph endpoint and displays the result
+// Calls the graph endpoint and displays the result
 const callApi = async () => {
     // Display loading message
     document.getElementById("result").innerText = "Loading...";
@@ -38,8 +39,11 @@ const callApi = async () => {
             if (response.status === 401) {
                 document.getElementById("result").innerText = "User is not authenticated.";
             } else {
-                document.getElementById("result").innerText = JSON.stringify(await response.json(), null, 4);
+               return await response.json();
             }
+        })
+        .then((data) => {
+            document.getElementById("result").innerText = JSON.stringify(data, null, 2);
         })
         .catch((error) => {
             document.getElementById("result").innerText = error;
