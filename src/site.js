@@ -36,6 +36,7 @@ const callApi = async () => {
         credentials: "include",
     })
         .then(async (response) => {
+            console.log(response);
             if (response.status === 401) {
                 document.getElementById("result").innerText = "User is not authenticated.";
             } else {
