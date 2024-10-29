@@ -1,5 +1,5 @@
 // The base API Management URI
-const baseUri = "https://api-beta.literadev.com";
+const baseUri = "https://poc-multi-region-frontend.azurefd.net";
 
 // The Microsoft Entra ID application registration client ID
 const clientId = "722b9421-31fc-4890-afc3-e4071864de2e";
@@ -32,7 +32,7 @@ const callApi = async () => {
     document.getElementById("result").innerText = "Loading...";
 
     // Call the Graph API endpoint
-    await fetch(`${baseUri}/graph/me`, {
+    await fetch(`${baseUri}/api/me`, {
         credentials: "include",
     })
         .then(async (response) => {
