@@ -18,6 +18,13 @@ const login = () => {
         `https://rbarchtenant.b2clogin.com/rbarchtenant.onmicrosoft.com/B2C_1A_LOSIGNIN/oauth2/v2.0/authorize?response_type=code&response_mode=query&redirect_uri=${baseUri}/auth/callback&client_id=${clientId}&scope=${scope}`
         //'https://rbarchtenant.b2clogin.com/rbarchtenant.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_LOSIGNIN&client_id=${clientId}&nonce=defaultNonce&redirect_uri=${baseUri}/auth/callback&scope=${scope}&response_type=code&prompt=login'
 };
+
+// Redirects the user to the login endpoint with the appropriate parameters to begin the authentication flow
+const altLogin = () => {
+    window.location.href =
+        `https://rbarchtenant.b2clogin.com/rbarchtenant.onmicrosoft.com/B2C_1A_LOSIGNINUSERMETA/oauth2/v2.0/authorize?response_type=code&response_mode=query&redirect_uri=${baseUri}/auth/metacallback&client_id=${clientId}&scope=${scope}`
+        //'https://rbarchtenant.b2clogin.com/rbarchtenant.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_LOSIGNIN&client_id=${clientId}&nonce=defaultNonce&redirect_uri=${baseUri}/auth/callback&scope=${scope}&response_type=code&prompt=login'
+};
 // Logs the user out of the application by redirecting to the logout endpoint of Microsoft Entra ID which will in turn call the logout endpoint of the application to remove the cookie
 // This allows the user to be logged out of Microsoft Entra ID and the single-page application itself by deleting the cookie
 // If you do not want to log the user out of Microsoft Entra ID, you can remove the redirect to the logout endpoint of Microsoft Entra ID and just call the logout endpoint of the application
