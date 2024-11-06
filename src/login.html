@@ -1,32 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Static Web App</title>
-</head>
-<body>
-    <h1>Welcome to My Simple Web App</h1>
-    <p>Calling external URL...</p>
+  <head>
+    <script type="module">
+      import { login, logout, callApi, altLogin } from "./site.js";
 
-    <script>
-        // This function will be called when the page loads
-        function callExternalURL() {
-            const url = 'https://rbarchtenant.b2clogin.com/rbarchtenant.onmicrosoft.com/B2C_1A_LOSIGNINUSERMETA/oauth2/v2.0/authorize?response_type=code&response_mode=query&redirect_uri=https://poc-multi-region-frontend.azurefd.net/auth/metacallback&client_id=722b9421-31fc-4890-afc3-e4071864de2e&scope=https://rbarchtenant.onmicrosoft.com/IEFTestApp/Read'; // Replace with the URL you want to call
+      // Attach event listeners for buttons
+      document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("btn-signin").addEventListener("click", login);
+        document.getElementById("btn-signout").addEventListener("click", logout);
+        document.getElementById("btn-api").addEventListener("click", async () => await callApi());
+        document.getElementById("btn-altsignin").addEventListener("click", altLogin);
 
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Success:', data);
-                    // Handle the response data here
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
-        }
-
-        // Call the function when the page loads
-        window.onload = callExternalURL;
+        // Invoke login function on window load
+        login();
+      });
     </script>
-</body>
+  </head>
+  <body>
+    <button id="btn-signin" type="button">Sign In</button>
+    <button id="btn-signout" type="button">Sign Out</button>
+    <button id="btn-api" type="button">Call API</button>
+    <br /><br />
+    <button id="btn-altsignin" type="button">Alt Sign In</button>
+    <div id="result"></div>
+  </body>
 </html>
