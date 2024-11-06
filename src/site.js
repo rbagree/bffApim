@@ -59,4 +59,4 @@ const callApi = async () => {
 };
 
 // Exports the functions to be used in the HTML
-export { login, logout, callApi };
+export { login, logout, callApi, altLogin };
