@@ -1,21 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script type="module">
-      import { altLogin } from "./site.js";
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect Page</title>
+    <script>
+        const baseUri = "https://poc-multi-region-frontend.azurefd.net";
 
-      // Attach event listeners for buttons
-      document.addEventListener("DOMContentLoaded", function () {
-        document.getElementById("btn-altsignin").addEventListener("click", altLogin);
+        // The Microsoft Entra ID application registration client ID
+        const clientId = "722b9421-31fc-4890-afc3-e4071864de2e";
 
-        // Invoke login function on window load
-        altLogin();
-      });
+        // The Microsoft Entra ID tenant ID
+        const tenantId = "rbarchtenant.onmicrosoft.com";
+
+        // The scope for the access token request to call the Microsoft Graph API
+        const scope = "https://rbarchtenant.onmicrosoft.com/IEFTestApp/Read";
+
+        // JavaScript function to redirect the user
+        const altLogin = () => {
+            window.location.href =
+                `https://rbarchtenant.b2clogin.com/rbarchtenant.onmicrosoft.com/B2C_1A_LOSIGNINUSERMETA/oauth2/v2.0/authorize?response_type=code&response_mode=query&redirect_uri=${baseUri}/auth/metacallback&client_id=${clientId}&scope=${scope}`;
+        };
+
+        // Call the redirect function when the page loads
+        window.onload = altLogin;
     </script>
-  </head>
-  <body>
-
-    <button id="btn-altsignin" type="button">Alt Sign In</button>
-    <div id="result"></div>
-  </body>
+</head>
+<body>
+  <p>You are being redirected to login page</p>
+    <!-- The body is intentionally left blank -->
+</body>
 </html>
