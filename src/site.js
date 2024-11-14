@@ -55,7 +55,7 @@ const callApi = async () => {
                 window.location.href = redirectUrl;
             //document.getElementById("result").innerText = "User is not authenticated.";
                 
-        } else {
+        }} else {
             const contentType = response.headers.get('Content-Type');
             if (contentType && contentType.includes('application/json')) {
                 const data = await response.json();
