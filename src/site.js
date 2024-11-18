@@ -67,5 +67,48 @@ if (response.status === 401) {
     }
 };
 
+
+
+
+// Calls the graph endpoint and displays the result
+const handleSubmit = async () => {
+    // Display loading message
+    document.getElementById("result").innerText = "Loading...";
+
+    try {
+        // Call the Graph API endpoint with manual redirect handling
+        const response = await fetch(`${baseUri}/api/changeRegion`, {
+            credentials: "include",
+            redirect: "manual" // Do not automatically follow redirects
+        });
+
+if (response.status === 401) {
+    const contentType = response.headers.get('Content-Type');
+    if (contentType && contentType.includes('application/json')) {
+        const data = await response.json();
+        const redirectUrl = `${baseUri}/${data.login_path}`; // Extract login_path from response body
+        if (redirectUrl) {
+            console.warn('Redirecting to:', redirectUrl);
+            // Optionally notify the user or redirect the browser
+            document.getElementById("result").innerText = "User is not authenticated. Redirecting to login page...";
+            // You might want to redirect the user or take other actions
+            window.location.href = redirectUrl;
+        }
+    } else {
+        document.getElementById("result").innerText = "Unexpected response format.";
+    }
+} else {
+            const contentType = response.headers.get('Content-Type');
+            if (contentType && contentType.includes('application/json')) {
+                const data = await response.json();
+                document.getElementById("result").innerText = JSON.stringify(data, null, 2);
+            } else {
+                document.getElementById("result").innerText = "Unexpected response format.";
+            }
+        }
+    } catch (error) {
+        document.getElementById("result").innerText = `Error: ${error.message}`;
+    }
+};
 // Exports the functions to be used in the HTML
-export { login, logout, callApi };
+export { login, logout, callApi, handleSubmit };
