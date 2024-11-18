@@ -4,23 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirect Page</title>
-    <script>
-        const baseUri = "https://poc-multi-region-frontend.azurefd.net";
-
-        // The Microsoft Entra ID application registration client ID
-        const clientId = "722b9421-31fc-4890-afc3-e4071864de2e";
-
-        // The Microsoft Entra ID tenant ID
-        const tenantId = "rbarchtenant.onmicrosoft.com";
-
-        // JavaScript function to redirect the user
-        const altLogin = () => {
-            window.location.href =
-                `https://rbarchtenant.b2clogin.com/${tenantId}/B2C_1A_LOSIGNINROUTING/oauth2/v2.0/authorize?response_type=id_token&response_mode=query&redirect_uri=${baseUri}/auth/routingcallback&client_id=${clientId}&scope=openid`;
-        };
-
+    <script type="module">
+      import {login} from "./site.js";
         // Call the redirect function when the page loads
-        window.onload = altLogin;
+        window.onload = login;
     </script>
 </head>
 <body>
