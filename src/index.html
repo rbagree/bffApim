@@ -2,19 +2,16 @@
 <html lang="en">
   <head>
     <script type="module">
-      import { login, logout, callApi, altLogin } from "./site.js";
+      import { login, logout, callApi } from "./site.js";
       document.getElementById("btn-signin").addEventListener("click", login);
       document.getElementById("btn-signout").addEventListener("click", logout);
       document.getElementById("btn-api").addEventListener("click", await callApi);
-      document.getElementById("btn-altsignin").addEventListener("click", altLogin);
     </script>
   </head>
   <body>
     <button id="btn-signin" type="button">Sign In</button>
     <button id="btn-signout" type="button">Sign Out</button>
     <button id="btn-api" type="button">Call API</button>
-    <br /><br />
-     <button id="btn-altsignin" type="button">Alt Sign In</button>
     <div id="result"></div>
   </body>
 </html>
