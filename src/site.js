@@ -72,12 +72,11 @@ if (response.status === 401) {
 
 // Calls the graph endpoint and displays the result
 const handleSubmit = async () => {
-    // Display loading message
-    document.getElementById("result").innerText = "Loading...";
+   const userInput = document.getElementById("user-input").value;
 
     try {
         // Call the Graph API endpoint with manual redirect handling
-        const response = await fetch(`${baseUri}/api/changeRegion`, {
+        const response = await fetch(`${baseUri}/api/changeRegion?region=${encodeURIComponent(userInput)}`, {
             credentials: "include",
             redirect: "manual" // Do not automatically follow redirects
         });
