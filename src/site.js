@@ -68,4 +68,4 @@ if (response.status === 401) {
 };
 
 // Exports the functions to be used in the HTML
-export { login, logout, callApi, altLogin };
+export { login, logout, callApi };
