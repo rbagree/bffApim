@@ -8,7 +8,7 @@ const clientId = "722b9421-31fc-4890-afc3-e4071864de2e";
 const tenantId = "rbarchtenant.onmicrosoft.com";
 
 // The Azure AD B2C login policy
-const login_policy = "B2C_1A_LOSIGNINROUTING";
+const login_policy = "B2C_1A_DEVSIGNINROUTING";
 
 // The scope for the id token request
 const scope = "openid"
