@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect Based on Local Storage Variable</title>
+    <script>
+        // Function to perform the redirection
+        function redirectToGeoCodeApp() {
+            // Attempt to retrieve the variable from local storage
+            var xLoGeoCode = localStorage.getItem('x-lo-geo-code');
+
+            // Check if the variable exists and has a value
+            if (xLoGeoCode) {
+                // Construct the URL using the variable value
+                var redirectUrl = `poc-arch.platform.lmscloudlab.com/launch/compare`;
+                // Redirect the browser to the constructed URL
+                window.location.href = redirectUrl;
+            } else {
+                console.log('x-lo-geo-code variable is not found in local storage.');
+            }
+        }
+
+        // Run the redirect function once the page is loaded
+        window.onload = redirectToGeoCodeApp;
+    </script>
+</head>
+<body>
+    <h1>Checking for x-lo-geo-code in local storage...</h1>
+</body>
+</html>
