@@ -7,17 +7,43 @@
     <script>
         // Function to perform the redirection
         function redirectToGeoCodeApp() {
-            // Attempt to retrieve the variable from local storage
+            // Attempt to retrieve the geo-code variable from local storage
             var xLoGeoCode = localStorage.getItem('x-lo-geo-code');
-
+            // Attempt to retrieve the access_token variable from local storage
+            var accessToken = localStorage.getItem('access_token');
+            
             // Check if the variable exists and has a value
             if (xLoGeoCode) {
+               // Check if the variable exists and has a value
+                if (accessToken) {
+                    // Construct the Home page URL using the geo-code variable value
+                    var redirectUrl = `https://poc-arch.platform.lmscloudlab.com/${xLoGeoCode}/app/compare`;
+                    // Redirect the browser to the constructed URL
+                    window.location.href = redirectUrl;
+                }
+                else{
+                    // Construct the login page URL using the variable value
+                    var redirectUrl = `https://poc-arch.platform.lmscloudlab.com/${xLoGeoCode}/login/compare`;
+                    // Redirect the browser to the constructed URL
+                    window.location.href = redirectUrl;
+                }
+                
                 // Construct the URL using the variable value
-                var redirectUrl = `poc-arch.platform.lmscloudlab.com/launch/compare`;
+                var redirectUrl = `https://poc-arch.platform.lmscloudlab.com/${xLoGeoCode}/app/compare`;
                 // Redirect the browser to the constructed URL
                 window.location.href = redirectUrl;
             } else {
-                console.log('x-lo-geo-code variable is not found in local storage.');
+                // Check if the variable exists and has a value
+                if (accessToken) {
+                    //Delete the access_token
+                    localStorage.removeItem('access_token')
+                }
+                else{
+                    // Construct the URL using the variable value
+                    var redirectUrl = `https://poc-arch.platform.lmscloudlab.com/login/compare`;
+                    // Redirect the browser to the constructed URL
+                    window.location.href = redirectUrl;
+                }
             }
         }
 
@@ -26,6 +52,5 @@
     </script>
 </head>
 <body>
-    <h1>Checking for x-lo-geo-code in local storage...</h1>
 </body>
 </html>
